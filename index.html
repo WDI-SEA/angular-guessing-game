@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="GuessingApp">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-controller="GuessingGame">
+    <h1>Guess My Number</h1>
+    <div>
+      Min: <input type="number" ng-model="min" />
+      Max: <input type="number" ng-model="max" />
+      <button ng-click="start()">Start Game</button>
+    </div>
+    <div ng-if="isGameStarted">
+      OK, I've got my number.
+    </div>
+    <div ng-repeat="guess in previousGuesses">
+      You guessed {{guess}}.
+      My number is
+      <span ng-if="guess > number">lower.</span>
+      <span ng-if="guess < number">higher.</span>
+      <span ng-if="guess === number">that number!</span>
+    </div>
+    <div ng-show="!isGameOver && isGameStarted">
+      <input type="number" ng-model="newGuess" />
+      <button ng-click="makeGuess(newGuess)">guess</button>
+    </div>
+    <div ng-show="isGameOver">
+      You got it in {{previousGuesses.length}} guesses!
+    </div>
+  </body>
+</html>
