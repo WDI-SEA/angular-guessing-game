@@ -1,4 +1,6 @@
 # Guessing Game
+See the game live: <https://wdi-sea.github.io/angular-guessing-game/>
+
 Use Angular to create a simple playable guessing game. The page should have
 two inputs so the user can choose the minimum and maximum range of the numbers
 to guess.
